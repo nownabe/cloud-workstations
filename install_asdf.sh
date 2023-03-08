@@ -25,9 +25,9 @@ declare -A plugins=(
   ["terraform"]="latest"
 )
 
-git clone https://github.com/asdf-vm/asdf.git /opt/asdf --branch "v$ASDF_VERSION"
+git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch "v$ASDF_VERSION"
 
-. /opt/asdf/asdf.sh
+. /root/.asdf/asdf.sh
 
 for plugin in "${!plugins[@]}"; do
   asdf plugin add "${plugin}"
