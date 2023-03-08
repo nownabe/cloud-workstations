@@ -11,11 +11,8 @@ LABEL org.opencontainers.image.description="Image for Cloud Workstations"
 
 ARG runuser="user"
 ARG asdf_version="0.11.1"
-ARG dotfiles=""
 
-ENV RUNUSER=$runuser
 ENV ASDF_VERSION=$asdf_version
-ENV DOTFILES=$dotfiles
 
 ENV LANG=en_US.UTF-8
 
