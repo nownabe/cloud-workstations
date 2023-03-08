@@ -17,7 +17,7 @@ ENV RUNUSER=$runuser
 ENV ASDF_VERSION=$asdf_version
 ENV DOTFILES=$dotfiles
 
-ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 # For compatibility with GitHub Codespaces
 ENV CODESPACES=true
