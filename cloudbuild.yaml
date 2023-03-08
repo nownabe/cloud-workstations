@@ -1,0 +1,17 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - $_LOCATION-docker.pkg.dev/$PROJECT_ID/workstations/code-oss:$_TAG
+      - .
+
+images:
+  - $_LOCATION-docker.pkg.dev/$PROJECT_ID/workstations/code-oss:$_TAG
+
+options:
+  machineType: N1_HIGHCPU_8
+
+substitutions:
+  _LOCATION: asia-east1
+  _TAG: latest
