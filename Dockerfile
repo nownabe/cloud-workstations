@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.title="Image for Cloud Workstations"
 LABEL org.opencontainers.image.description="Image for Cloud Workstations"
 
 ARG runuser="user"
-ARG asdf_version="0.11.1"
+ARG asdf_version="0.11.2"
 
 ENV ASDF_VERSION=$asdf_version
 
