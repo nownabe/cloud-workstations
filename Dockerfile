@@ -17,6 +17,8 @@ ENV RUNUSER=$runuser
 ENV ASDF_VERSION=$asdf_version
 ENV DOTFILES=$dotfiles
 
+ENV LC_ALL=en_US.UTF-8
+
 # For compatibility with GitHub Codespaces
 ENV CODESPACES=true
 
@@ -25,6 +27,8 @@ COPY install_asdf.sh /opt/install_asdf.sh
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libyaml-dev \
+    locales-all \
+    zsh \
   && bash /opt/install_asdf.sh \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
