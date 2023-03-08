@@ -11,9 +11,14 @@ LABEL org.opencontainers.image.description="Image for Cloud Workstations"
 
 ARG runuser="user"
 ARG asdf_version="0.11.1"
+ARG dotfiles=""
 
 ENV RUNUSER=$runuser
 ENV ASDF_VERSION=$asdf_version
+ENV DOTFILES=$dotfiles
+
+# For compatibility with GitHub Codespaces
+ENV CODESPACES=true
 
 COPY install_asdf.sh /opt/install_asdf.sh
 
