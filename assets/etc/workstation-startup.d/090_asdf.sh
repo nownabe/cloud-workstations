@@ -5,8 +5,12 @@ HOME="/home/$RUNUSER"
 if [[ ! -e "$HOME/.asdf" ]]; then
   cp -r /root/.asdf "$HOME/.asdf"
 
-  for f in $(find "$HOME/.asdf" -type f); do
-    grep -q /root/ "$f" && sed -i "s#/root/#$HOME/#g" "$f"
+  for f in $(find "$HOME/.asdf/shims" -type f); do
+    sed -i "s#/root/#$HOME/#g" "$f"
+  done
+
+  for f in $(find "$HOME/.asdf/installs" -type f -exec grep -Iq . {} \; -print); do
+    sed -i "s#/root/#$HOME/#g" "$f"
   done
 
   for sym in $(find "$HOME/.asdf" -type l); do
