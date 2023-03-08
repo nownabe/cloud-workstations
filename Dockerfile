@@ -23,6 +23,10 @@ COPY install_asdf.sh /opt/install_asdf.sh
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
+    libbz2-dev \
+    liblzma-dev \
+    libncurses5-dev \
+    libreadline6-dev \
     libyaml-dev \
     locales-all \
     zsh \
