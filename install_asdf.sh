@@ -4,8 +4,6 @@ set -o pipefail
 set -o errexit
 set -o nounset
 
-set -x
-
 # plugins and default version to install
 
 declare -A plugins=(
