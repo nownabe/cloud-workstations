@@ -9,7 +9,6 @@ LABEL org.opencontainers.image.licenses="Apache-2.0"
 LABEL org.opencontainers.image.title="Image for Cloud Workstations"
 LABEL org.opencontainers.image.description="Image for Cloud Workstations"
 
-ARG runuser="user"
 ARG asdf_version="0.11.2"
 
 ENV ASDF_VERSION=$asdf_version
