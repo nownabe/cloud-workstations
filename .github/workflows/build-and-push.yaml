@@ -2,7 +2,7 @@ name: Build and push container image
 
 on:
   push:
-    tags: ["v*.*.*"]
+    #tags: ["v*.*.*"]
 
 jobs:
   build_and_push:
@@ -18,6 +18,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME}}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Remove v from tag name
         uses: actions/github-script@v6
         id: set-revision
@@ -29,5 +33,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ steps.set-revision.outputs.result }}
+            ${{ github.repository }}:${{ steps.set-revision.outputs.result }}
+
+        # ghcr.io/${{ github.repository }}:latest
+        # github.repository }}:latest
