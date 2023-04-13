@@ -34,3 +34,17 @@ gcloud beta workstations create \
   --config "$USER-config" \
   --region "$region"
 ```
+
+## Development
+
+Run locally:
+
+```bash
+docker build -t my-workstation .
+docker run -ti --rm -p 8080:80 \
+  -e RUNUSER=nownabe \
+  -e DOTFILES=https://github.com/nownabe/dotfiles \
+  my-workstation
+```
+
+And open http://localhost:8080.
