@@ -25,9 +25,14 @@ declare -A plugins=(
   ["terraform"]="latest"
 )
 
-git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch "v$ASDF_VERSION"
+asdf_dir=/opt/asdf
 
-. /root/.asdf/asdf.sh
+git clone https://github.com/asdf-vm/asdf.git "$asdf_dir" --branch "v$ASDF_VERSION"
+
+export ASDF_DIR="$asdf_dir"
+export ASDF_DATA_DIR="$asdf_dir"
+
+. "$asdf_dir/asdf.sh"
 
 for plugin in "${!plugins[@]}"; do
   echo "** Installing ${plugin} **"
